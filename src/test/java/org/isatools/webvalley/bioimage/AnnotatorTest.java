@@ -25,22 +25,26 @@ public class AnnotatorTest {
         freeText.add("cytoplasm");
         freeText.add("nucleus");
         freeText.add("plasma membrane");
-        
+
         AnnotatorSearchClient sc = new AnnotatorSearchClient();
 
         Map<String, Map<String, AnnotatorResult>> result = sc.searchForTerms(freeText, "", true);
 
+
         int termsWithMatches = 0;
         for (String key : result.keySet()) {
             System.out.println(key);
-            
-            for(String match :result.get(key).keySet() ) {
-                System.out.println("\t " + match + " " + result.get(key).get(match).getOntologyTerm().getOntologyPurl());
+
+            for (String match : result.get(key).keySet()) {
+                AnnotatorResult annotatorResult = result.get(key).get(match);
+                System.out.println("\t " + match + " " +
+                        annotatorResult.getOntologyTerm().getOntologyPurl()
+                        + " " + annotatorResult.getScore());
             }
-            
+
         }
 
-        System.out.println(termsWithMatches+ "/" + freeText.size() + " terms have matches.");
+        System.out.println(termsWithMatches + "/" + freeText.size() + " terms have matches.");
 
     }
 }

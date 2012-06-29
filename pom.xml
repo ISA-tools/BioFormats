@@ -8,6 +8,7 @@
     <artifactId>BioImage</artifactId>
     <version>1.0</version>
 
+
     <developers>
         <developer>
             <id>WebValley Peeps</id>
@@ -24,7 +25,19 @@
         </dependency>
 
 
+        <dependency>
+            <groupId>bioformats</groupId>
+            <artifactId>bio-formats</artifactId>
+            <version>4.3.3</version>
+        </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>oerc</id>
+            <url>http://frog.oerc.ox.ac.uk:8080/artifactory/repo/</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
@@ -47,6 +60,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
